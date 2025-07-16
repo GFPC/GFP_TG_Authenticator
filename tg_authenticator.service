@@ -1,0 +1,14 @@
+[Unit]
+Description=TGAuthenticator Bot & API (developed by GFP)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/path/to/your/project
+ExecStart=/usr/bin/env python3 main.py
+EnvironmentFile=/path/to/your/project/.env
+Restart=on-failure
+User=youruser
+
+[Install]
+WantedBy=multi-user.target

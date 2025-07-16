@@ -1,0 +1,8 @@
+POST http://localhost:3051/send-message
+Content-Type: application/json
+x-api-key: base64:1xDFBBGvhCpCGiqb9uz5v/wOB7ClFjZY/yFyR/b61sI=
+
+{
+    "code": "TEST",
+    "user_id": "7727904991"
+}
