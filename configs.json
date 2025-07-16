@@ -1,12 +1,7 @@
 {
-    "gruzvill": {
-        "login": "admin@ibronevik.ru",
-        "password": "p@ssw0rd",
-        "type": "e-mail"
-    },
-    "children": {
-        "login": "admin@ibronevik.ru",
-        "password": "c|a197B1ba",
-        "type": "e-mail"
+    "config": {
+        "login": "YOUR_LOGIN",
+        "password": "YOUR_PASSWORD",
+        "type": "phone"
     }
 } 
