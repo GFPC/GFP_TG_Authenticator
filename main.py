@@ -51,6 +51,9 @@ async def start_handler(message: types.Message):
     phone, config = parse_start_args(args)
     if phone and config:
         user = await api.getUserByPhone(config, phone)
+        if user.get("data",[]) == []:
+            await message.answer("User not found. Please try again later.")
+            return
         u_id = list(user.get("data", {"user":{}}).get("user",{}).keys())[0]
         u_tg = message.from_user.id
         logger.info(f"User {u_id} ({u_tg}) started with args: {args}")
@@ -136,6 +139,7 @@ async def log_exceptions_middleware(request: Request, call_next):
         })
 
 async def main():
+    await api.auth()
     config = uvicorn.Config(app, host=HOST, port=PORT, loop="asyncio")
     server = uvicorn.Server(config)
     api_task = asyncio.create_task(server.serve())
