@@ -59,7 +59,7 @@ async def start_handler(message: types.Message):
         logger.info(f"User {u_id} ({u_tg}) started with args: {args}")
         result = await api.editUser(config, u_id, u_tg)
         logger.info(f"Result: code={result.get('code')}, message={result.get('message')}")
-        if result and result.get("success"):
+        if result and result.get("status")=="success":
             await message.answer("Your Telegram account has been successfully linked! No further action is required, codes will be sent automatically. Now return to the app/website and press the 'Send code' button.")
         elif result and result.get("message")=="busy user data: double tg":
             await message.answer("This account is already linked to another Telegram account. You will not be able to receive authorization codes in this account.")
