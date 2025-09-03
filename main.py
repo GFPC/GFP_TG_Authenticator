@@ -64,6 +64,7 @@ async def start_handler(message: types.Message):
         elif result and result.get("message")=="busy user data: double tg":
             await message.answer("This account is already linked to another Telegram account. You will not be able to receive authorization codes in this account.")
         else:
+            print(result)
             await message.answer("Error linking Telegram. Please try again later.")
     else:
         await message.answer("Hello!\nPlease access the bot only via the link provided in the app/website instructions.\nTo link your account, use the link with parameters or the command /start [phone]_[config].")
